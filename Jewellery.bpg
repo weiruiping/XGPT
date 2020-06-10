@@ -1,0 +1,49 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = Jewellery_Clt.exe Jewellery_Svc.exe CacheGen.exe AutoUpdate.exe \
+  DataExpress.exe Memo.exe TimeBook.exe LogViewer.exe IntfAdapter.exe \
+  Distribution_Svc.exe
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+CacheGen.exe: CacheGen\CacheGen.dpr
+  $(DCC)
+
+AutoUpdate.exe: Public\AutoUpdate\AutoUpdate.dpr
+  $(DCC)
+
+DataExpress.exe: DataExpress\DataExpress.dpr
+  $(DCC)
+
+TimeBook.exe: TimeBook\TimeBook.dpr
+  $(DCC)
+
+LogViewer.exe: LogViewer\LogViewer.dpr
+  $(DCC)
+
+IntfAdapter.exe: IntfAdapter\IntfAdapter.dpr
+  $(DCC)
+
+Jewellery_Svc.exe: Marketing\server\Jewellery_Svc.dpr
+  $(DCC)
+
+Jewellery_Clt.exe: Marketing\client\Jewellery_Clt.dpr
+  $(DCC)
+
+Memo.exe: Memo\Memo.dpr
+  $(DCC)
+
+Distribution_Svc.exe: Distribution\server\Distribution_Svc.dpr
+  $(DCC)
+
+
